@@ -13,9 +13,15 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         reply_markup = InlineKeyboardMarkup(keyboard)
 
-        await update.message.reply_text(
-            f"Selamat datang {member.first_name}! 🎉\n\nKlik tombol di bawah untuk daftar.",
-            reply_markup=reply_markup
+       await update.message.reply_text(
+    f"Salam hangat dan selamat datang {member.first_name}! 👋\n\n"
+    "Terima kasih telah bergabung di PETIRJITU OFFICIAL.\n\n"
+    "🎁 Informasi bonus & promo\n"
+    "⚡ Prediksi akurat setiap hari\n\n"
+    "Tekan tombol di bawah untuk melanjutkan.",
+    reply_markup=reply_markup
+)
+
         )
 
 app = ApplicationBuilder().token(TOKEN).build()

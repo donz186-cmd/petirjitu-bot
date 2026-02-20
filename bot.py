@@ -7,8 +7,8 @@ TOKEN = os.getenv("BOT_TOKEN")
 async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
     for member in update.message.new_chat_members:
         keyboard = [
-            [InlineKeyboardButton("DAFTAR SEKARANG", url="https://google.com")],
-            [InlineKeyboardButton("PREDIKSI AKURAT", url="https://google.com")]
+            [InlineKeyboardButton("DAFTAR SEKARANG", url="https://tinyurl.com/a6f5dt6e")],
+            [InlineKeyboardButton("RTP GACOR 98%", url="https://petirsatu.store/")]
         ]
 
         reply_markup = InlineKeyboardMarkup(keyboard)
@@ -17,7 +17,7 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
     f"Salam hangat dan selamat datang {member.first_name}! 👋\n\n"
     "Terima kasih telah bergabung di PETIRJITU OFFICIAL.\n\n"
     "🎁 Informasi bonus & promo\n"
-    "⚡ Prediksi akurat setiap hari\n\n"
+    "🚀 RTP 98% SIAP GACOR!\n"
     "Tekan tombol di bawah untuk melanjutkan.",
     reply_markup=reply_markup
 )

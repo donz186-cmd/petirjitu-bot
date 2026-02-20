@@ -63,11 +63,24 @@ async def auto_reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if message and message.text:
         text = message.text.lower()
 
-        if "link gacor atau rtp" in text:
+        if "rtp" in text:
+            await message.reply_text(
+                "🔥 RTP GACOR RESMI 🔥\n\n"
+                "Klik di bawah untuk masuk:\n"
+                "👉 https://petirsatu.store/"
+            )
+
+async def auto_reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    message = update.message
+
+    if message and message.text:
+        text = message.text.lower()
+
+        if "link gacor" in text:
             await message.reply_text(
                 "🔥 LINK GACOR RESMI 🔥\n\n"
                 "Klik di bawah untuk masuk:\n"
-                "👉 https://petirsatu.store/"
+                "👉 https://tinyurl.com/a6f5dt6e"
             )
 
 # ==============================

@@ -52,7 +52,11 @@ async def delete_links(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 text=f"⚠️ Link tidak diperbolehkan di grup ini, {message.from_user.first_name}."
             )
 
-
+async def delete_left_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.message and update.message.left_chat_member:
+        await update.message.delete(
+            )
+        
 # ==============================
 # RUN BOT
 # ==============================
@@ -60,6 +64,7 @@ async def delete_links(update: Update, context: ContextTypes.DEFAULT_TYPE):
 app = ApplicationBuilder().token(TOKEN).build()
 
 app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, welcome))
+app.add_handler(MessageHandler(filters.StatusUpdate.LEFT_CHAT_MEMBER, delete_left_message))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, delete_links))
 
 print("Bot is running...")

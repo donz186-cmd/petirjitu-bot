@@ -26,8 +26,23 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=reply_markup
         )
 
+async def delete_links(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    message = update.message
+
+    if message and message.text:
+        text = message.text.lower()
+
+        if "http://" in text or "https://" in text or "t.me" in text or "www." in text:
+            await message.delete()
+
+            await context.bot.send_message(
+                chat_id=update.effective_chat.id,
+                text=f"⚠️ Link tidak diperbolehkan di grup ini, {message.from_user.first_name}."
+            )
+
 app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, welcome))
+app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, delete_links))
 
 print("Bot is running...")
 app.run_polling()

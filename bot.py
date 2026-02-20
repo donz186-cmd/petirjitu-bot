@@ -88,13 +88,12 @@ async def auto_reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ==============================
 
 app = ApplicationBuilder().token(TOKEN).build()
-
 app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, welcome))
 app.add_handler(MessageHandler(filters.StatusUpdate.LEFT_CHAT_MEMBER, delete_left_message))
-
 # Auto reply dulu
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, auto_reply))
-
+# Auto reply dulu
+app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, auto_reply))
 # Lalu anti link
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, delete_links))
 

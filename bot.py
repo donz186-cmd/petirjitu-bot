@@ -56,14 +56,33 @@ async def delete_left_message(update: Update, context: ContextTypes.DEFAULT_TYPE
     if update.message and update.message.left_chat_member:
         await update.message.delete(
             )
-        
+
+async def auto_reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    message = update.message
+
+    if message and message.text:
+        text = message.text.lower()
+
+        if "link gacor" in text:
+            await message.reply_text(
+                "🔥 LINK GACOR RESMI 🔥\n\n"
+                "Klik di bawah untuk masuk:\n"
+                "👉 https://petirsatu.store/"
+            )
+
 # ==============================
 # RUN BOT
 # ==============================
 
 app = ApplicationBuilder().token(TOKEN).build()
+
 app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, welcome))
 app.add_handler(MessageHandler(filters.StatusUpdate.LEFT_CHAT_MEMBER, delete_left_message))
+
+# Auto reply dulu
+app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, auto_reply))
+
+# Lalu anti link
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, delete_links))
 
 print("Bot is running...")

@@ -62,7 +62,6 @@ async def delete_left_message(update: Update, context: ContextTypes.DEFAULT_TYPE
 # ==============================
 
 app = ApplicationBuilder().token(TOKEN).build()
-
 app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, welcome))
 app.add_handler(MessageHandler(filters.StatusUpdate.LEFT_CHAT_MEMBER, delete_left_message))
 app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, delete_links))

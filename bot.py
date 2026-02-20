@@ -26,19 +26,24 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=reply_markup
         )
 
-async def delete_links(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    message = update.message
+async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    for member in update.message.new_chat_members:
 
-    if message and message.text:
-        text = message.text.lower()
+        # Hapus notifikasi "joined the group"
+        await update.message.delete()
 
-        if "http://" in text or "https://" in text or "t.me" in text or "www." in text:
-            await message.delete()
+        keyboard = [
+            [InlineKeyboardButton("DAFTAR SEKARANG", url="https://tinyurl.com/a6f5dt6e")],
+            [InlineKeyboardButton("RTP GACOR 98%", url="https://petirsatu.store/")]
+        ]
 
-            await context.bot.send_message(
-                chat_id=update.effective_chat.id,
-                text=f"⚠️ Link tidak diperbolehkan di grup ini, {message.from_user.first_name}."
-            )
+        reply_markup = InlineKeyboardMarkup(keyboard)
+
+        await update.message.reply_photo(
+            photo="https://i.postimg.cc/rpnQ8CmW/6.png",
+            caption=f"Selamat datang {member.first_name}! 👋",
+            reply_markup=reply_markup
+        )
 
 app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(MessageHandler(filters.StatusUpdate.NEW_CHAT_MEMBERS, welcome))

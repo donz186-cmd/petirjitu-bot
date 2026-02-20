@@ -13,12 +13,15 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         reply_markup = InlineKeyboardMarkup(keyboard)
 
-        await update.message.reply_text(
+        await update.message.reply_photo(
+            photo="https://i.imgur.com/xxxxxxx.jpg",  # https://imgur.com/a/cN79vPZ.png
+        caption=(
             f"Salam hangat dan selamat datang {member.first_name}! 👋\n\n"
             "Terima kasih telah bergabung di PETIRJITU OFFICIAL.\n\n"
             "🎁 Informasi bonus & promo\n"
             "🚀 RTP 98% SIAP GACOR!\n\n"
-            "Tekan tombol di bawah untuk melanjutkan.",
+            "Tekan tombol di bawah untuk melanjutkan."
+        ),
             reply_markup=reply_markup
         )
 

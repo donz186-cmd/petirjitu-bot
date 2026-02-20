@@ -17,7 +17,7 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
     f"Salam hangat dan selamat datang {member.first_name}! 👋\n\n"
     "Terima kasih telah bergabung di PETIRJITU OFFICIAL.\n\n"
     "🎁 Informasi bonus & promo\n"
-    "🚀 RTP 98% SIAP GACOR!\n"
+    "🚀 RTP 98% SIAP GACOR!\n\n"
     "Tekan tombol di bawah untuk melanjutkan.",
     reply_markup=reply_markup
 )

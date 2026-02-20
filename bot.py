@@ -63,7 +63,7 @@ async def auto_reply(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if message and message.text:
         text = message.text.lower()
 
-        if "link gacor" in text:
+        if "link gacor atau rtp" in text:
             await message.reply_text(
                 "🔥 LINK GACOR RESMI 🔥\n\n"
                 "Klik di bawah untuk masuk:\n"

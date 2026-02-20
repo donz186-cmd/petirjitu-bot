@@ -14,7 +14,7 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup = InlineKeyboardMarkup(keyboard)
 
         await update.message.reply_photo(
-            photo="https://i.imgur.com/xxxxxxx.jpg",  # https://imgur.com/a/cN79vPZ.png
+            photo="https://i.postimg.cc/rpnQ8CmW/6.png",
         caption=(
             f"Salam hangat dan selamat datang {member.first_name}! 👋\n\n"
             "Terima kasih telah bergabung di PETIRJITU OFFICIAL.\n\n"
